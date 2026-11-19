@@ -58,14 +58,10 @@ function initMobileNav() {
 }
 
 /* ==========================================================================
-   3. Real-time Clock and Countdown Timer
+   3. Real-time Clock
    ========================================================================== */
 function initRealtimeCounters() {
   const clockEl = document.getElementById("prague-clock");
-  const countdownEl = document.getElementById("deadline-countdown");
-
-  // Mandatory Deadline: 22 November 2026 at 23:59:59 CET
-  const deadlineDate = new Date("2026-11-22T23:59:59+01:00").getTime();
 
   function updateTimers() {
     const now = new Date();
@@ -83,24 +79,6 @@ function initRealtimeCounters() {
         second: "2-digit"
       };
       clockEl.textContent = "Prague Time: " + new Intl.DateTimeFormat("en-GB", options).format(now);
-    }
-
-    // Countdown
-    if (countdownEl) {
-      const distance = deadlineDate - now.getTime();
-
-      if (distance < 0) {
-        countdownEl.textContent = "Deadline Passed";
-        return;
-      }
-
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      const pad = (n) => String(n).padStart(2, "0");
-      countdownEl.textContent = `${days}d ${pad(hours)}h ${pad(minutes)}m ${pad(seconds)}s`;
     }
   }
 
@@ -356,7 +334,6 @@ function initFormValidation() {
 
   const nameInput = document.getElementById("form-name");
   const emailInput = document.getElementById("form-email");
-  const topicSelect = document.getElementById("form-topic");
   const messageInput = document.getElementById("form-message");
   const alertBox = document.getElementById("form-alert");
 
@@ -381,10 +358,6 @@ function initFormValidation() {
     validateField(emailInput, isValidEmail(emailInput.value.trim()));
   });
 
-  topicSelect?.addEventListener("change", () => {
-    validateField(topicSelect, topicSelect.value !== "");
-  });
-
   messageInput?.addEventListener("blur", () => {
     validateField(messageInput, messageInput.value.trim().length >= 10);
   });
@@ -394,13 +367,12 @@ function initFormValidation() {
 
     const isNameValid = validateField(nameInput, nameInput.value.trim().length >= 3);
     const isEmailValid = validateField(emailInput, isValidEmail(emailInput.value.trim()));
-    const isTopicValid = validateField(topicSelect, topicSelect.value !== "");
     const isMsgValid = validateField(messageInput, messageInput.value.trim().length >= 10);
 
-    if (isNameValid && isEmailValid && isTopicValid && isMsgValid) {
+    if (isNameValid && isEmailValid && isMsgValid) {
       if (alertBox) {
         alertBox.style.display = "block";
-        alertBox.textContent = `Transmission confirmed. Inscription recorded for ${nameInput.value.trim()} under topic "${topicSelect.value}". Verification passed.`;
+        alertBox.textContent = `Transmission confirmed. Message recorded for ${nameInput.value.trim()}. Validation passed.`;
         alertBox.scrollIntoView({ behavior: "smooth", block: "nearest" });
       }
 
