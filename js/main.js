@@ -1,11 +1,11 @@
 /**
  * Web Fundamentals - ZIT (460-2079/02)
  * Student: Mehedi Toure (TOU0026) - VSB-TUO
- * Design System: SDM Editorial (High-Contrast, Sharp, Framework-Free)
- * Pure Vanilla JavaScript
+ * Minimalist Luxury Architecture (Vanilla ECMAScript, Zero Frameworks)
  */
 
 document.addEventListener("DOMContentLoaded", () => {
+  initCursorFollower();
   initMobileNav();
   initRealtimeCounters();
   initSearchFilter();
@@ -15,7 +15,35 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /* ==========================================================================
-   1. Mobile Navigation
+   1. Minimal Cursor Follower
+   ========================================================================== */
+function initCursorFollower() {
+  const cursor = document.getElementById("cursor-follower");
+  if (!cursor) return;
+
+  document.addEventListener("mousemove", (e) => {
+    cursor.style.left = `${e.clientX}px`;
+    cursor.style.top = `${e.clientY}px`;
+  });
+
+  // Scale up cursor slightly when hovering interactive buttons or links
+  const interactives = document.querySelectorAll("a, button, input, select, textarea");
+  interactives.forEach((el) => {
+    el.addEventListener("mouseenter", () => {
+      cursor.style.width = "36px";
+      cursor.style.height = "36px";
+      cursor.style.backgroundColor = "rgba(0, 0, 0, 0.4)";
+    });
+    el.addEventListener("mouseleave", () => {
+      cursor.style.width = "22px";
+      cursor.style.height = "22px";
+      cursor.style.backgroundColor = "rgba(0, 0, 0, 0.25)";
+    });
+  });
+}
+
+/* ==========================================================================
+   2. Mobile Navigation
    ========================================================================== */
 function initMobileNav() {
   const navToggle = document.getElementById("nav-toggle");
@@ -25,18 +53,18 @@ function initMobileNav() {
   navToggle.addEventListener("click", () => {
     const isOpen = siteNav.classList.toggle("open");
     navToggle.setAttribute("aria-expanded", String(isOpen));
-    navToggle.textContent = isOpen ? "CLOSE" : "MENU";
+    navToggle.textContent = isOpen ? "Close" : "Menu";
   });
 }
 
 /* ==========================================================================
-   2. Real-time Clock and Countdown Timer
+   3. Real-time Clock and Countdown Timer
    ========================================================================== */
 function initRealtimeCounters() {
   const clockEl = document.getElementById("prague-clock");
   const countdownEl = document.getElementById("deadline-countdown");
 
-  // Deadline: 22 November 2026 at 23:59:59 CET
+  // Mandatory Deadline: 22 November 2026 at 23:59:59 CET
   const deadlineDate = new Date("2026-11-22T23:59:59+01:00").getTime();
 
   function updateTimers() {
@@ -62,7 +90,7 @@ function initRealtimeCounters() {
       const distance = deadlineDate - now.getTime();
 
       if (distance < 0) {
-        countdownEl.textContent = "DEADLINE PASSED";
+        countdownEl.textContent = "Deadline Passed";
         return;
       }
 
@@ -72,7 +100,7 @@ function initRealtimeCounters() {
       const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
       const pad = (n) => String(n).padStart(2, "0");
-      countdownEl.textContent = `${days}D ${pad(hours)}H ${pad(minutes)}M ${pad(seconds)}S`;
+      countdownEl.textContent = `${days}d ${pad(hours)}h ${pad(minutes)}m ${pad(seconds)}s`;
     }
   }
 
@@ -81,18 +109,18 @@ function initRealtimeCounters() {
 }
 
 /* ==========================================================================
-   3. Search & Filter Cards (index.html)
+   4. Search & Filter Cards (index.html)
    ========================================================================== */
 function initSearchFilter() {
   const searchInput = document.getElementById("search-input");
-  const cards = document.querySelectorAll(".editorial-card[data-topic]");
+  const cards = document.querySelectorAll(".luxury-card[data-topic]");
   if (!searchInput || !cards.length) return;
 
   searchInput.addEventListener("input", (e) => {
     const query = e.target.value.trim().toLowerCase();
 
     cards.forEach((card) => {
-      const title = card.querySelector(".subhead")?.textContent.toLowerCase() || "";
+      const title = card.querySelector("h3")?.textContent.toLowerCase() || "";
       const body = card.querySelector("p")?.textContent.toLowerCase() || "";
       const topic = card.getAttribute("data-topic")?.toLowerCase() || "";
 
@@ -106,7 +134,7 @@ function initSearchFilter() {
 }
 
 /* ==========================================================================
-   4. Interactive ZIT Web Fundamentals Quiz (interactive.html)
+   5. Interactive ZIT Web Fundamentals Quiz (interactive.html)
    ========================================================================== */
 const QUIZ_DATA = [
   {
@@ -193,7 +221,7 @@ function initQuiz() {
     questionEl.textContent = q.question;
     optionsEl.innerHTML = "";
 
-    feedbackEl.className = "quiz-explanation-box";
+    feedbackEl.className = "quiz-feedback-box";
     feedbackEl.style.display = "none";
     feedbackEl.textContent = "";
 
@@ -203,7 +231,7 @@ function initQuiz() {
     q.options.forEach((optText, index) => {
       const btn = document.createElement("button");
       btn.type = "button";
-      btn.className = "quiz-option-btn";
+      btn.className = "quiz-choice-btn";
       btn.textContent = optText;
 
       btn.addEventListener("click", () => {
@@ -214,19 +242,19 @@ function initQuiz() {
         if (isCorrect) {
           score++;
           btn.classList.add("correct");
-          feedbackEl.className = "quiz-explanation-box success show";
+          feedbackEl.className = "quiz-feedback-box success show";
           feedbackEl.innerHTML = `<strong>Correct.</strong> ${q.explanation}`;
         } else {
           btn.classList.add("incorrect");
-          const allOptions = optionsEl.querySelectorAll(".quiz-option-btn");
+          const allOptions = optionsEl.querySelectorAll(".quiz-choice-btn");
           if (allOptions[q.answer]) {
             allOptions[q.answer].classList.add("correct");
           }
-          feedbackEl.className = "quiz-explanation-box danger show";
+          feedbackEl.className = "quiz-feedback-box danger show";
           feedbackEl.innerHTML = `<strong>Incorrect.</strong> ${q.explanation}`;
         }
 
-        optionsEl.querySelectorAll(".quiz-option-btn").forEach((b) => (b.disabled = true));
+        optionsEl.querySelectorAll(".quiz-choice-btn").forEach((b) => (b.disabled = true));
         scoreBadge.textContent = `Score: ${score} / ${QUIZ_DATA.length}`;
         nextBtn.disabled = false;
       });
@@ -258,12 +286,12 @@ function initQuiz() {
 
     const percentage = Math.round((score / QUIZ_DATA.length) * 100);
     optionsEl.innerHTML = `
-      <div style="padding: 24px; border: 2px solid var(--color-border-strong); background: var(--color-surface);">
-        <p style="font-family: var(--font-display); font-size: 24px; margin-bottom: 8px; color: var(--color-primary);">
-          Final Evaluation: ${percentage}%
+      <div style="padding: 28px; border-radius: var(--radius-card); background: var(--bg-surface-subtle); text-align: center;">
+        <p style="font-family: var(--font-serif); font-size: 28px; margin-bottom: 8px; color: var(--text-primary);">
+          Final Result: ${percentage}%
         </p>
-        <p style="font-size: 15px; color: var(--color-text-secondary);">
-          ${percentage >= 80 ? "Excellence demonstrated across HTML5, CSS and JavaScript architecture." : "Review the technical specifications on the home page to consolidate core fundamentals."}
+        <p style="font-size: 15px; color: var(--text-muted); max-width: 460px; margin: 0 auto;">
+          ${percentage >= 80 ? "Excellence demonstrated across HTML5, CSS and JavaScript architecture." : "Review the curriculum cards on the home page to consolidate core fundamentals."}
         </p>
       </div>
     `;
@@ -276,7 +304,7 @@ function initQuiz() {
 }
 
 /* ==========================================================================
-   5. Interactive CSS Box Model Tool (interactive.html)
+   6. Interactive CSS Box Model Tool (interactive.html)
    ========================================================================== */
 function initBoxModelTool() {
   const marginSlider = document.getElementById("slider-margin");
@@ -308,7 +336,7 @@ function initBoxModelTool() {
     previewPadding.style.padding = `${p}px`;
 
     if (generatedCss) {
-      generatedCss.textContent = `.element {\n  box-sizing: border-box;\n  margin: ${m}px;\n  border: ${b}px solid #0A0A0A;\n  padding: ${p}px;\n}`;
+      generatedCss.textContent = `.element {\n  box-sizing: border-box;\n  margin: ${m}px;\n  border: ${b}px solid #171717;\n  padding: ${p}px;\n}`;
     }
   }
 
@@ -320,7 +348,7 @@ function initBoxModelTool() {
 }
 
 /* ==========================================================================
-   6. Form Validation (interactive.html)
+   7. Form Validation (interactive.html)
    ========================================================================== */
 function initFormValidation() {
   const form = document.getElementById("academic-feedback-form");
@@ -333,7 +361,7 @@ function initFormValidation() {
   const alertBox = document.getElementById("form-alert");
 
   function validateField(input, condition) {
-    const parent = input.closest(".field-group");
+    const parent = input.closest(".form-field-unit");
     if (!condition) {
       parent.classList.add("has-error");
       return false;
@@ -372,12 +400,12 @@ function initFormValidation() {
     if (isNameValid && isEmailValid && isTopicValid && isMsgValid) {
       if (alertBox) {
         alertBox.style.display = "block";
-        alertBox.textContent = `Transmission confirmed. Inscription recorded for ${nameInput.value.trim()} under category "${topicSelect.value}". Standards check passed.`;
+        alertBox.textContent = `Transmission confirmed. Inscription recorded for ${nameInput.value.trim()} under topic "${topicSelect.value}". Verification passed.`;
         alertBox.scrollIntoView({ behavior: "smooth", block: "nearest" });
       }
 
       form.reset();
-      form.querySelectorAll(".field-group").forEach((group) => group.classList.remove("has-error"));
+      form.querySelectorAll(".form-field-unit").forEach((group) => group.classList.remove("has-error"));
     } else {
       if (alertBox) {
         alertBox.style.display = "none";
