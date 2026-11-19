@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Interactive Laboratory and Quiz for Web Fundamentals - Basics of IT (ZIT 460-2079/02) at VSB-TUO. Student: Mehedi Toure (TOU0026).">
+  <meta name="author" content="Mehedi Toure (TOU0026)">
+  <title>Interactive Lab & Quiz | ZIT - VSB-TUO</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Site Header & Navigation -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="index.html" class="brand" aria-label="Web Fundamentals Home">
+        <svg class="brand-icon" viewBox="0 0 64 64" width="32" height="32" aria-hidden="true">
+          <rect width="64" height="64" rx="14" fill="#6d28d9"/>
+          <path d="M18 20L28 32L18 44" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <path d="M46 20L36 32L46 44" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <circle cx="32" cy="32" r="3" fill="#c4b5fd"/>
+        </svg>
+        <span>Web Fundamentals</span>
+        <span class="brand-badge">ZIT 2026</span>
+      </a>
+
+      <button id="nav-toggle" class="nav-toggle" aria-label="Toggle Navigation Menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <nav id="site-nav" class="site-nav" aria-label="Primary Navigation">
+        <a href="index.html" class="nav-link">Home & Guides</a>
+        <a href="interactive.html" class="nav-link active">Interactive Lab & Quiz</a>
+        <div class="nav-actions">
+          <button id="theme-toggle" class="btn-theme" type="button" aria-label="Toggle Color Theme">
+            Theme: Light
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" aria-labelledby="lab-title">
+    <div class="hero-inner">
+      <div>
+        <h1 id="lab-title" class="hero-title">
+          Interactive <span class="hero-highlight">Lab & Assessment</span>
+        </h1>
+        <p class="hero-description">
+          Evaluate your understanding of web principles with our dynamic quiz engine, simulate CSS box-model parameters in real time, and verify client-side form validation mechanisms.
+        </p>
+        <div class="hero-meta">
+          <span class="meta-chip">Module: Interactive JavaScript Engine</span>
+          <span class="meta-chip">Status: Active Vanilla DOM</span>
+        </div>
+      </div>
+
+      <aside class="info-card" aria-label="Module Context">
+        <div class="info-card-header">
+          <h2 class="info-card-title">Laboratory Scope</h2>
+          <span class="brand-badge">Vanilla JS</span>
+        </div>
+        <p style="font-size: 0.9rem; color: var(--color-text-muted); line-height: 1.6;">
+          This page satisfies the requirement for dynamic JavaScript functionality in the ZIT course assignment. It operates entirely client-side without relying on third-party frameworks.
+        </p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="container">
+
+    <!-- Section 1: ZIT Interactive Knowledge Quiz -->
+    <section aria-labelledby="quiz-section-title">
+      <div class="section-header">
+        <span class="section-tag">Interactive Evaluation</span>
+        <h2 id="quiz-section-title" class="section-title">Web Standards Assessment Quiz</h2>
+        <p class="section-lead">Test your understanding of core concepts covered in the "Building the Web" lecture.</p>
+      </div>
+
+      <div id="quiz-container" class="quiz-wrapper">
+        <div class="quiz-progress-bar" aria-label="Quiz Progress">
+          <div id="quiz-progress-fill" class="quiz-progress-fill"></div>
+        </div>
+
+        <div class="quiz-header">
+          <span id="quiz-step" class="quiz-step">Question 1 of 5</span>
+          <span id="quiz-score-badge" class="quiz-score-badge">Score: 0 / 5</span>
+        </div>
+
+        <h3 id="quiz-question" class="quiz-question">Loading Question...</h3>
+
+        <div id="quiz-options" class="quiz-options" role="radiogroup" aria-labelledby="quiz-question">
+          <!-- Dynamic Buttons injected via JS -->
+        </div>
+
+        <div id="quiz-feedback" class="quiz-feedback" role="alert" aria-live="assertive">
+          <!-- Feedback message -->
+        </div>
+
+        <div class="quiz-controls">
+          <button id="quiz-reset-btn" type="button" class="btn btn-secondary">Restart Quiz</button>
+          <button id="quiz-next-btn" type="button" class="btn btn-primary" disabled>Next Question</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Interactive CSS Box Model Playground -->
+    <section aria-labelledby="tool-section-title" style="margin-top: 3.5rem;">
+      <div class="section-header">
+        <span class="section-tag">CSS Engineering</span>
+        <h2 id="tool-section-title" class="section-title">Interactive CSS Box Model Inspector</h2>
+        <p class="section-lead">Adjust parameters to see how margin, border, and padding affect the DOM layout in real time.</p>
+      </div>
+
+      <div class="tool-grid">
+        <!-- Controls Column -->
+        <div class="tool-controls">
+          <div class="control-group">
+            <div class="control-label">
+              <span>Margin (Orange Zone)</span>
+              <span id="val-margin">20px</span>
+            </div>
+            <input type="range" id="slider-margin" class="control-slider" min="0" max="50" value="20" aria-label="Adjust Margin">
+          </div>
+
+          <div class="control-group">
+            <div class="control-label">
+              <span>Border (Purple Zone)</span>
+              <span id="val-border">4px</span>
+            </div>
+            <input type="range" id="slider-border" class="control-slider" min="0" max="20" value="4" aria-label="Adjust Border Width">
+          </div>
+
+          <div class="control-group">
+            <div class="control-label">
+              <span>Padding (Green Zone)</span>
+              <span id="val-padding">24px</span>
+            </div>
+            <input type="range" id="slider-padding" class="control-slider" min="0" max="60" value="24" aria-label="Adjust Padding">
+          </div>
+
+          <div class="code-block" style="margin-top: 1.5rem;">
+            <div class="code-header">Computed CSS Declaration</div>
+            <code id="generated-css">.element {
+  box-sizing: border-box;
+  margin: 20px;
+  border: 4px solid #6d28d9;
+  padding: 24px;
+}</code>
+          </div>
+        </div>
+
+        <!-- Preview Column -->
+        <div class="tool-preview">
+          <div id="preview-margin" class="box-model-container">
+            <div style="font-size: 0.75rem; font-weight: 700; color: #b45309; margin-bottom: 0.25rem;">MARGIN</div>
+            <div id="preview-border" class="box-model-border">
+              <div id="preview-padding" class="box-model-padding">
+                <div class="box-model-content">
+                  CONTENT BOX
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Interactive Validation Form -->
+    <section aria-labelledby="form-section-title" style="margin-top: 3.5rem;">
+      <div class="section-header" style="text-align: center;">
+        <span class="section-tag">Client-Side Validation</span>
+        <h2 id="form-section-title" class="section-title">Academic Feedback & Contact Form</h2>
+        <p class="section-lead">Form verified by vanilla JavaScript before submission. Includes error handling and ARIA compliance.</p>
+      </div>
+
+      <div class="form-card">
+        <div id="form-alert" class="form-alert" role="status"></div>
+
+        <form id="academic-feedback-form" novalidate>
+          <div class="form-group">
+            <label for="form-name" class="form-label">Full Name</label>
+            <input type="text" id="form-name" class="form-input" placeholder="e.g. Mehedi Toure" required minlength="3">
+            <span class="form-error">Please enter at least 3 characters.</span>
+          </div>
+
+          <div class="form-group">
+            <label for="form-email" class="form-label">Academic Email Address</label>
+            <input type="email" id="form-email" class="form-input" placeholder="e.g. mehedi.toure.st@vsb.cz" required>
+            <span class="form-error">Please provide a valid email format (e.g. user@domain.com).</span>
+          </div>
+
+          <div class="form-group">
+            <label for="form-topic" class="form-label">Topic of Inquiry</label>
+            <select id="form-topic" class="form-select" required>
+              <option value="">Select a curriculum domain...</option>
+              <option value="Semantic HTML5">Semantic HTML5 & Accessibility</option>
+              <option value="CSS Box Model & Flexbox">CSS Box Model & Flexbox Layouts</option>
+              <option value="Vanilla JavaScript">Vanilla JavaScript & DOM Manipulation</option>
+              <option value="Client-Server Infrastructure">Client-Server Infrastructure & Hosting</option>
+            </select>
+            <span class="form-error">Please select a topic from the list.</span>
+          </div>
+
+          <div class="form-group">
+            <label for="form-message" class="form-label">Observation or Message</label>
+            <textarea id="form-message" class="form-textarea" rows="4" placeholder="Detail your feedback or technical inquiry (minimum 10 characters)..." required minlength="10"></textarea>
+            <span class="form-error">Your message must contain at least 10 characters.</span>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%;">
+            Validate & Submit Form
+          </button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">Web Fundamentals Portal</div>
+        <p>
+          Final project assignment for the course "Basics of Information Technology" (ZIT - 460-2079/02), Department of Computer Science, Faculty of Electrical Engineering and Computer Science (FEI), VSB - Technical University of Ostrava.
+        </p>
+      </div>
+
+      <div>
+        <div class="footer-column-title">Navigation</div>
+        <ul class="footer-links">
+          <li><a href="index.html">Home & Core Modules</a></li>
+          <li><a href="interactive.html">Interactive Lab & Quiz</a></li>
+          <li><a href="#lab-title">Back to Top</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-column-title">Academic Details</div>
+        <ul class="footer-links">
+          <li>Student: Mehedi Toure</li>
+          <li>Login: TOU0026</li>
+          <li>Instructor: Ing. Michal Radecky, Ph.D.</li>
+          <li>University: VSB-TUO</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>Built with pure HTML5, CSS3 and Vanilla JavaScript. Zero frameworks.</span>
+      <span>W3C Standard Compliant &bull; 2026</span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
