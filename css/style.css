@@ -614,8 +614,9 @@ a {
 }
 
 .code-snippet {
-  background-color: #171717;
-  color: #f5f5f5;
+  background-color: var(--bg-surface-subtle);
+  color: var(--text-primary);
+  border: 1px solid var(--border-medium);
   border-radius: var(--radius-sm);
   padding: 16px;
   font-family: var(--font-mono);
