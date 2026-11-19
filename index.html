@@ -3,211 +3,224 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Academic Portal for Basics of Information Technology (ZIT - 460-2079/02) at VSB-TUO Ostrava. Student: Mehedi Toure (TOU0026).">
+  <meta name="description" content="Academic reference on HTML5, CSS3, and JavaScript architecture for Basics of IT (ZIT 460-2079/02) at VSB-TUO. Student: Mehedi Toure (TOU0026).">
   <meta name="author" content="Mehedi Toure (TOU0026)">
-  <title>Web Fundamentals | ZIT - VSB-TUO</title>
+  <title>Web Fundamentals | ZIT 460-2079/02 | VSB-TUO</title>
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
+  <!-- Top Institutional Bar -->
+  <aside class="header-top-bar" aria-label="Course Header">
+    <span>VSB - TECHNICAL UNIVERSITY OF OSTRAVA &bull; FEI</span>
+    <span>COURSE CODE: 460-2079/02 (ZIT)</span>
+  </aside>
+
   <!-- Site Header & Navigation -->
   <header class="site-header">
     <div class="nav-container">
       <a href="index.html" class="brand" aria-label="Web Fundamentals Home">
-        <svg class="brand-icon" viewBox="0 0 64 64" width="32" height="32" aria-hidden="true">
-          <rect width="64" height="64" rx="14" fill="#6d28d9"/>
-          <path d="M18 20L28 32L18 44" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-          <path d="M46 20L36 32L46 44" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-          <circle cx="32" cy="32" r="3" fill="#c4b5fd"/>
+        <svg viewBox="0 0 32 32" width="24" height="24" aria-hidden="true">
+          <rect width="32" height="32" fill="#0A0A0A"/>
+          <rect width="32" height="4" fill="#EF4444"/>
+          <path d="M8 11L13 16L8 21" stroke="#FAFAFA" stroke-width="2" fill="none"/>
+          <path d="M24 11L19 16L24 21" stroke="#FAFAFA" stroke-width="2" fill="none"/>
         </svg>
-        <span>Web Fundamentals</span>
-        <span class="brand-badge">ZIT 2026</span>
+        <span class="brand-title">WEB FUNDAMENTALS</span>
+        <span class="brand-badge">ACADEMIC DISPATCH</span>
       </a>
 
       <button id="nav-toggle" class="nav-toggle" aria-label="Toggle Navigation Menu" aria-expanded="false">
-        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="3" y1="12" x2="21" y2="12"></line>
-          <line x1="3" y1="6" x2="21" y2="6"></line>
-          <line x1="3" y1="18" x2="21" y2="18"></line>
-        </svg>
+        MENU
       </button>
 
       <nav id="site-nav" class="site-nav" aria-label="Primary Navigation">
         <a href="index.html" class="nav-link active">Home & Guides</a>
         <a href="interactive.html" class="nav-link">Interactive Lab & Quiz</a>
-        <div class="nav-actions">
-          <button id="theme-toggle" class="btn-theme" type="button" aria-label="Toggle Color Theme">
-            Theme: Light
-          </button>
-        </div>
       </nav>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero" aria-labelledby="hero-title">
-    <div class="hero-inner">
-      <div>
-        <h1 id="hero-title" class="hero-title">
-          Foundations of <span class="hero-highlight">Web Architecture</span>
+  <!-- Hero Editorial Section -->
+  <section class="hero-editorial" aria-labelledby="hero-display-headline">
+    <div class="hero-editorial-inner">
+      <div class="hero-main-col">
+        <span class="overline hero-overline">Curriculum Dossier &bull; Building the Web</span>
+        <h1 id="hero-display-headline" class="display-title">
+          Foundations of Web Architecture.
         </h1>
-        <p class="hero-description">
-          Comprehensive reference on HTML5 semantics, modern CSS3 layout paradigms, and native vanilla ECMAScript standards without external dependencies.
+        <p class="body-large">
+          Authoritative technical breakdown of semantic HTML5 structures, modern CSS layout models, and vanilla ECMAScript protocols engineered without extraneous framework dependencies.
         </p>
-        <div class="hero-meta">
-          <span class="meta-chip">Course: ZIT (460-2079/02)</span>
-          <span class="meta-chip">Institution: VSB-TUO Ostrava</span>
-          <span class="meta-chip">Lecturer: Ing. Michal Radecky, Ph.D.</span>
+        <div class="hero-meta-bar">
+          <span class="meta-tag">Course: ZIT (460-2079/02)</span>
+          <span class="meta-tag">Lecturer: Ing. Michal Radecky, Ph.D.</span>
+          <span class="meta-tag">Semester: Winter 2026/2027</span>
         </div>
       </div>
 
       <!-- Student Credentials Card -->
-      <aside class="info-card" aria-label="Student Identification">
-        <div class="info-card-header">
-          <h2 class="info-card-title">Student Identification</h2>
-          <span class="brand-badge">FEI / VSB</span>
+      <aside class="aside-dossier" aria-label="Student Credentials">
+        <div class="dossier-header">
+          <span class="overline">Official Identification</span>
+          <h2 class="dossier-title">Student File</h2>
         </div>
-        <dl class="info-grid">
-          <div class="info-item">
-            <dt>Student Name</dt>
-            <dd>Mehedi Toure</dd>
+        <div class="dossier-grid">
+          <div class="dossier-entry">
+            <div class="dossier-label">Student Name</div>
+            <div class="dossier-value">Mehedi Toure</div>
           </div>
-          <div class="info-item">
-            <dt>VŠB Login</dt>
-            <dd>TOU0026</dd>
+          <div class="dossier-entry">
+            <div class="dossier-label">VŠB Login</div>
+            <div class="dossier-value">TOU0026</div>
           </div>
-          <div class="info-item">
-            <dt>Subject</dt>
-            <dd>Basics of IT (ZIT)</dd>
+          <div class="dossier-entry">
+            <div class="dossier-label">Subject Code</div>
+            <div class="dossier-value">460-2079/02 (ZIT)</div>
           </div>
-          <div class="info-item">
-            <dt>Assignment</dt>
-            <dd>Building the Web</dd>
+          <div class="dossier-entry">
+            <div class="dossier-label">Academic Institution</div>
+            <div class="dossier-value">FEI / VŠB-TUO Ostrava</div>
           </div>
-        </dl>
+        </div>
       </aside>
     </div>
   </section>
 
-  <!-- Main Body Content -->
+  <!-- Main Content Layout -->
   <main class="container">
 
-    <!-- Real-time Status Bar (Countdown & Clock) -->
-    <section class="realtime-bar" aria-label="Academic Timelines">
-      <div class="countdown-block">
-        <span class="countdown-label">Submission Deadline (22 Nov 2026):</span>
+    <!-- Editorial Real-time Ticker -->
+    <section class="editorial-ticker" aria-label="Submission Countdown">
+      <div class="ticker-left">
+        <span class="ticker-title">Mandatory Submission Deadline:</span>
         <span id="deadline-countdown" class="countdown-digits">Calculating...</span>
       </div>
-      <div class="clock-block">
-        <span id="prague-clock">Time: Synchronizing...</span>
+      <div class="clock-digits">
+        <span id="prague-clock">Prague Time: Synchronizing...</span>
       </div>
     </section>
 
-    <!-- Search / Filter -->
-    <div class="section-header">
-      <span class="section-tag">Curriculum Matrix</span>
-      <h2 class="section-title">Core Web Standards</h2>
-      <p class="section-lead">Explore the architectural components required to build standards-compliant web applications.</p>
+    <!-- Section Headline -->
+    <div class="section-headline-group">
+      <div>
+        <span class="overline">Technical Specifications</span>
+        <h2 class="headline">Core Architectural Pillars</h2>
+      </div>
+      <span class="caption">Standard W3C &bull; Pure Native Stack</span>
     </div>
 
-    <div class="search-box">
-      <input type="text" id="search-input" class="search-input" placeholder="Filter topics (e.g., HTML, CSS, DOM, HTTP)..." aria-label="Filter curriculum topics">
+    <!-- Search Input -->
+    <div class="search-wrapper">
+      <input type="text" id="search-input" class="editorial-input" placeholder="Search syllabus topics (e.g., HTML, CSS, DOM, HTTP)..." aria-label="Filter curriculum topics">
     </div>
 
-    <!-- Cards Grid -->
-    <div class="cards-grid">
+    <!-- Editorial Cards Grid -->
+    <div class="editorial-grid">
 
-      <!-- Card 1: Semantic HTML5 -->
-      <article class="card" data-topic="html semantic structure accessibility w3c">
-        <span class="card-badge">Structure</span>
-        <h3 class="card-title">Semantic HTML5 Markup</h3>
-        <p class="card-body">
-          HTML5 introduces native landmark elements that define document outline and role without reliance on generic div wrappers.
+      <!-- Card 1 -->
+      <article class="editorial-card featured" data-topic="html semantic structure accessibility w3c">
+        <div class="card-header-bar">
+          <span class="overline">Specification 01</span>
+          <span class="card-index">HTML5 / DOM</span>
+        </div>
+        <h3 class="subhead">Semantic HTML5 Structure</h3>
+        <p>
+          Semantic document architecture communicates structural intent, content hierarchy, and native accessibility parameters directly to user agents without presentation-driven wrappers.
         </p>
-        <ul class="card-list">
+        <ul class="editorial-list">
           <li><strong>Document Landmarks:</strong> &lt;header&gt;, &lt;nav&gt;, &lt;main&gt;, &lt;article&gt;, &lt;aside&gt;, &lt;footer&gt;</li>
-          <li><strong>Accessible Forms:</strong> Explicit label association via for/id attributes</li>
-          <li><strong>Standards Compliance:</strong> Clean DOM hierarchy verified against W3C specification</li>
+          <li><strong>Accessible Forms:</strong> Strict programmatic labeling via paired for/id bindings</li>
+          <li><strong>Validation:</strong> Syntactic compliance verified against the official W3C Living Standard</li>
         </ul>
-        <div class="code-block">
-          <div class="code-header">HTML5 Landmark Skeleton</div>
+        <div class="editorial-code">
+          <div class="code-title">Document Outline Pattern</div>
           <code>&lt;header&gt;&lt;nav&gt;...&lt;/nav&gt;&lt;/header&gt;
 &lt;main&gt;
   &lt;article&gt;
-    &lt;h1&gt;Document Title&lt;/h1&gt;
+    &lt;h1&gt;Section Title&lt;/h1&gt;
   &lt;/article&gt;
 &lt;/main&gt;
 &lt;footer&gt;&copy; 2026 VSB-TUO&lt;/footer&gt;</code>
         </div>
       </article>
 
-      <!-- Card 2: CSS3 Box Model & Layout -->
-      <article class="card" data-topic="css box-model flexbox grid responsive viewport">
-        <span class="card-badge">Styling</span>
-        <h3 class="card-title">Modern CSS Layout Paradigms</h3>
-        <p class="card-body">
-          CSS Flexbox and CSS Grid enable responsive, multidimensional layouts without external CSS frameworks like Bootstrap.
+      <!-- Card 2 -->
+      <article class="editorial-card" data-topic="css box-model flexbox grid responsive viewport">
+        <div class="card-header-bar">
+          <span class="overline">Specification 02</span>
+          <span class="card-index">CSS3 / LAYOUT</span>
+        </div>
+        <h3 class="subhead">Modern CSS Layout Paradigms</h3>
+        <p>
+          CSS Grid and Flexbox supply multi-axis positioning and predictable dimension computation across all physical viewport widths without third-party frameworks.
         </p>
-        <ul class="card-list">
-          <li><strong>Box-Sizing:</strong> Standardized border-box model for predictable dimensional math</li>
-          <li><strong>Flexbox:</strong> One-dimensional alignment for navigation bars and controls</li>
-          <li><strong>CSS Grid:</strong> Two-dimensional structural grids with auto-fit minmax functions</li>
-          <li><strong>CSS Custom Properties:</strong> Dynamic theme variables for clean runtime mode switches</li>
+        <ul class="editorial-list">
+          <li><strong>Box-Sizing:</strong> Border-box declaration for deterministic padding and border mathematics</li>
+          <li><strong>Flexbox:</strong> One-dimensional linear distribution for navigation bars and controls</li>
+          <li><strong>CSS Grid:</strong> Two-dimensional structural layouts utilizing repeat(auto-fit, minmax(...))</li>
+          <li><strong>CSS Variables:</strong> Centralized design tokens for sharp editorial consistency</li>
         </ul>
-        <div class="code-block">
-          <div class="code-header">CSS Reset & Grid</div>
+        <div class="editorial-code">
+          <div class="code-title">Box Model & Grid Rules</div>
           <code>*, *::before, *::after {
   box-sizing: border-box;
 }
-.grid-layout {
+.editorial-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
 }</code>
         </div>
       </article>
 
-      <!-- Card 3: Vanilla JavaScript -->
-      <article class="card" data-topic="javascript es6 dom events fetch api">
-        <span class="card-badge">Interaction</span>
-        <h3 class="card-title">Vanilla ECMAScript & DOM</h3>
-        <p class="card-body">
-          Native JavaScript interacts directly with the Document Object Model (DOM) to manage user input, events, and dynamic state.
+      <!-- Card 3 -->
+      <article class="editorial-card" data-topic="javascript es6 dom events fetch api">
+        <div class="card-header-bar">
+          <span class="overline">Specification 03</span>
+          <span class="card-index">ECMASCRIPT / DOM</span>
+        </div>
+        <h3 class="subhead">Native ECMAScript & DOM</h3>
+        <p>
+          Direct manipulation of the Document Object Model using modern ES6+ paradigms to orchestrate user interactions, state transitions, and form validation routines.
         </p>
-        <ul class="card-list">
-          <li><strong>Event Listeners:</strong> Non-intrusive addEventListener() pattern</li>
-          <li><strong>Client-Side Validation:</strong> Real-time input evaluation prior to submission</li>
-          <li><strong>State Persistence:</strong> Browser localStorage for preferences and theme</li>
-          <li><strong>Timers & Async:</strong> High-precision intervals for live clocks and countdowns</li>
+        <ul class="editorial-list">
+          <li><strong>Event Handling:</strong> Non-intrusive addEventListener() patterns</li>
+          <li><strong>Client Validation:</strong> Immediate constraint verification prior to HTTP dispatch</li>
+          <li><strong>Persistent State:</strong> Client-side storage via browser localStorage</li>
+          <li><strong>Precision Timers:</strong> High-resolution setInterval cycles for live clocks and counters</li>
         </ul>
-        <div class="code-block">
-          <div class="code-header">Native Event Handler</div>
+        <div class="editorial-code">
+          <div class="code-title">Event Registration</div>
           <code>document.addEventListener("DOMContentLoaded", () => {
-  const btn = document.querySelector("#submit-btn");
-  btn.addEventListener("click", (event) => {
+  const trigger = document.querySelector("#submit-btn");
+  trigger.addEventListener("click", (event) => {
     event.preventDefault();
-    validateForm();
+    verifyFormIntegrity();
   });
 });</code>
         </div>
       </article>
 
-      <!-- Card 4: Network & Protocols -->
-      <article class="card" data-topic="http https protocol dns client-server architecture">
-        <span class="card-badge">Infrastructure</span>
-        <h3 class="card-title">Client-Server Communication</h3>
-        <p class="card-body">
-          The underlying communication pipeline connecting browser clients with web server infrastructures across the TCP/IP stack.
+      <!-- Card 4 -->
+      <article class="editorial-card" data-topic="http https protocol dns client-server architecture">
+        <div class="card-header-bar">
+          <span class="overline">Specification 04</span>
+          <span class="card-index">NETWORKING / HTTP</span>
+        </div>
+        <h3 class="subhead">Client-Server Pipeline</h3>
+        <p>
+          The networking foundation connecting the browser runtime to host infrastructures across DNS resolution, TLS handshakes, and stateless HTTP request-response cycles.
         </p>
-        <ul class="card-list">
-          <li><strong>Request-Response Lifecycle:</strong> DNS lookup, TLS handshake, HTTP GET/POST</li>
-          <li><strong>Status Codes:</strong> 2xx (Success), 3xx (Redirect), 4xx (Client Error), 5xx (Server Error)</li>
-          <li><strong>Asset Optimization:</strong> Minimized payloads, SVG rendering, and cache headers</li>
-          <li><strong>Hosting:</strong> Static deployment on Vercel, GitHub Pages, or VŠB Homel server</li>
+        <ul class="editorial-list">
+          <li><strong>Lifecycle:</strong> DNS query, TCP three-way handshake, TLS negotiation, HTTP GET</li>
+          <li><strong>Status Protocol:</strong> 2xx (Success), 3xx (Redirect), 4xx (Client Error), 5xx (Server Error)</li>
+          <li><strong>Performance:</strong> Lightweight asset footprints and geometric SVG rendering</li>
+          <li><strong>Deployment:</strong> Continuous delivery via GitHub Pages and Vercel hosting</li>
         </ul>
-        <div class="code-block">
-          <div class="code-header">HTTP Headers Pattern</div>
+        <div class="editorial-code">
+          <div class="code-title">HTTP Request Envelope</div>
           <code>GET /index.html HTTP/1.1
 Host: vsb.cz
 User-Agent: Mozilla/5.0
@@ -218,52 +231,52 @@ Connection: keep-alive</code>
 
     </div>
 
-    <!-- Call to Action Banner -->
-    <section class="info-card" style="margin-top: 2rem; text-align: center; border-left-color: var(--color-primary-accent);">
-      <h3 style="font-size: 1.35rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--color-text);">
-        Ready to test your comprehension?
-      </h3>
-      <p style="color: var(--color-text-muted); max-width: 600px; margin: 0 auto 1.5rem auto;">
-        Access the Interactive Lab to take the Web Fundamentals Assessment Quiz, test the real-time CSS Box Model simulator, and verify the client-side validation engine.
+    <!-- Editorial Pull-Quote / Action Block -->
+    <section class="pull-quote" aria-labelledby="pq-title">
+      <span class="overline">Practical Examination</span>
+      <p id="pq-title" class="body-large">
+        "Theoretical knowledge of web infrastructure achieves practical completion only when subjected to interactive verification and real-time execution."
       </p>
-      <a href="interactive.html" class="btn btn-primary">Open Interactive Lab & Quiz</a>
+      <div style="margin-top: 16px;">
+        <a href="interactive.html" class="btn btn-primary">Proceed to Interactive Lab & Quiz</a>
+      </div>
     </section>
 
   </main>
 
   <!-- Site Footer -->
   <footer class="site-footer">
-    <div class="footer-inner">
+    <div class="footer-grid">
       <div>
-        <div class="footer-brand">Web Fundamentals Portal</div>
-        <p>
-          Final project assignment for the course "Basics of Information Technology" (ZIT - 460-2079/02), Department of Computer Science, Faculty of Electrical Engineering and Computer Science (FEI), VSB - Technical University of Ostrava.
+        <div class="footer-brand-title">WEB FUNDAMENTALS</div>
+        <p class="footer-summary">
+          Mandatory semester project for "Basics of Information Technology" (ZIT — code 460-2079/02), Department of Computer Science, Faculty of Electrical Engineering and Computer Science (FEI), VSB - Technical University of Ostrava.
         </p>
       </div>
 
       <div>
-        <div class="footer-column-title">Navigation</div>
-        <ul class="footer-links">
+        <div class="footer-heading">Navigation</div>
+        <ul class="footer-list">
           <li><a href="index.html">Home & Core Modules</a></li>
           <li><a href="interactive.html">Interactive Lab & Quiz</a></li>
-          <li><a href="#hero-title">Back to Top</a></li>
+          <li><a href="#hero-display-headline">Back to Top</a></li>
         </ul>
       </div>
 
       <div>
-        <div class="footer-column-title">Academic Details</div>
-        <ul class="footer-links">
+        <div class="footer-heading">Academic Record</div>
+        <ul class="footer-list">
           <li>Student: Mehedi Toure</li>
           <li>Login: TOU0026</li>
           <li>Instructor: Ing. Michal Radecky, Ph.D.</li>
-          <li>University: VSB-TUO</li>
+          <li>Institution: VSB-TUO</li>
         </ul>
       </div>
     </div>
 
-    <div class="footer-bottom">
-      <span>Built with pure HTML5, CSS3 and Vanilla JavaScript. Zero frameworks.</span>
-      <span>W3C Standard Compliant &bull; 2026</span>
+    <div class="footer-legal-bar">
+      <span>Built in pure semantic HTML5, modern CSS, and vanilla JavaScript. Zero frameworks.</span>
+      <span>SDM Editorial Standard &bull; W3C Compliant &bull; 2026</span>
     </div>
   </footer>
 

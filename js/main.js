@@ -1,11 +1,11 @@
 /**
  * Web Fundamentals - ZIT (460-2079/02)
  * Student: Mehedi Toure (TOU0026) - VSB-TUO
- * Pure Vanilla JavaScript (Zero Frameworks)
+ * Design System: SDM Editorial (High-Contrast, Sharp, Framework-Free)
+ * Pure Vanilla JavaScript
  */
 
 document.addEventListener("DOMContentLoaded", () => {
-  initTheme();
   initMobileNav();
   initRealtimeCounters();
   initSearchFilter();
@@ -15,39 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /* ==========================================================================
-   1. Theme Management (Light / Dark)
-   ========================================================================== */
-function initTheme() {
-  const themeToggle = document.getElementById("theme-toggle");
-  if (!themeToggle) return;
-
-  const savedTheme = localStorage.getItem("zit_theme");
-  const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
-  const initialTheme = savedTheme || (prefersDark ? "dark" : "light");
-
-  applyTheme(initialTheme);
-
-  themeToggle.addEventListener("click", () => {
-    const currentTheme = document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light";
-    const nextTheme = currentTheme === "dark" ? "light" : "dark";
-    applyTheme(nextTheme);
-    localStorage.setItem("zit_theme", nextTheme);
-  });
-}
-
-function applyTheme(theme) {
-  const themeToggle = document.getElementById("theme-toggle");
-  if (theme === "dark") {
-    document.documentElement.setAttribute("data-theme", "dark");
-    if (themeToggle) themeToggle.textContent = "Theme: Dark";
-  } else {
-    document.documentElement.removeAttribute("data-theme");
-    if (themeToggle) themeToggle.textContent = "Theme: Light";
-  }
-}
-
-/* ==========================================================================
-   2. Mobile Navigation
+   1. Mobile Navigation
    ========================================================================== */
 function initMobileNav() {
   const navToggle = document.getElementById("nav-toggle");
@@ -57,11 +25,12 @@ function initMobileNav() {
   navToggle.addEventListener("click", () => {
     const isOpen = siteNav.classList.toggle("open");
     navToggle.setAttribute("aria-expanded", String(isOpen));
+    navToggle.textContent = isOpen ? "CLOSE" : "MENU";
   });
 }
 
 /* ==========================================================================
-   3. Real-time Clock and Countdown Timer
+   2. Real-time Clock and Countdown Timer
    ========================================================================== */
 function initRealtimeCounters() {
   const clockEl = document.getElementById("prague-clock");
@@ -85,7 +54,7 @@ function initRealtimeCounters() {
         minute: "2-digit",
         second: "2-digit"
       };
-      clockEl.textContent = "Prague: " + new Intl.DateTimeFormat("en-GB", options).format(now);
+      clockEl.textContent = "Prague Time: " + new Intl.DateTimeFormat("en-GB", options).format(now);
     }
 
     // Countdown
@@ -93,7 +62,7 @@ function initRealtimeCounters() {
       const distance = deadlineDate - now.getTime();
 
       if (distance < 0) {
-        countdownEl.textContent = "Deadline Passed";
+        countdownEl.textContent = "DEADLINE PASSED";
         return;
       }
 
@@ -103,7 +72,7 @@ function initRealtimeCounters() {
       const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
       const pad = (n) => String(n).padStart(2, "0");
-      countdownEl.textContent = `${days}d ${pad(hours)}h ${pad(minutes)}m ${pad(seconds)}s`;
+      countdownEl.textContent = `${days}D ${pad(hours)}H ${pad(minutes)}M ${pad(seconds)}S`;
     }
   }
 
@@ -112,19 +81,19 @@ function initRealtimeCounters() {
 }
 
 /* ==========================================================================
-   4. Search & Filter Cards (index.html)
+   3. Search & Filter Cards (index.html)
    ========================================================================== */
 function initSearchFilter() {
   const searchInput = document.getElementById("search-input");
-  const cards = document.querySelectorAll(".card[data-topic]");
+  const cards = document.querySelectorAll(".editorial-card[data-topic]");
   if (!searchInput || !cards.length) return;
 
   searchInput.addEventListener("input", (e) => {
     const query = e.target.value.trim().toLowerCase();
 
     cards.forEach((card) => {
-      const title = card.querySelector(".card-title")?.textContent.toLowerCase() || "";
-      const body = card.querySelector(".card-body")?.textContent.toLowerCase() || "";
+      const title = card.querySelector(".subhead")?.textContent.toLowerCase() || "";
+      const body = card.querySelector("p")?.textContent.toLowerCase() || "";
       const topic = card.getAttribute("data-topic")?.toLowerCase() || "";
 
       if (title.includes(query) || body.includes(query) || topic.includes(query)) {
@@ -137,7 +106,7 @@ function initSearchFilter() {
 }
 
 /* ==========================================================================
-   5. Interactive ZIT Web Fundamentals Quiz (interactive.html)
+   4. Interactive ZIT Web Fundamentals Quiz (interactive.html)
    ========================================================================== */
 const QUIZ_DATA = [
   {
@@ -224,17 +193,17 @@ function initQuiz() {
     questionEl.textContent = q.question;
     optionsEl.innerHTML = "";
 
-    feedbackEl.className = "quiz-feedback";
+    feedbackEl.className = "quiz-explanation-box";
     feedbackEl.style.display = "none";
     feedbackEl.textContent = "";
 
     nextBtn.disabled = true;
-    nextBtn.textContent = currentQuestion === QUIZ_DATA.length - 1 ? "Finish Quiz" : "Next Question";
+    nextBtn.textContent = currentQuestion === QUIZ_DATA.length - 1 ? "Finish Assessment" : "Next Question";
 
     q.options.forEach((optText, index) => {
       const btn = document.createElement("button");
       btn.type = "button";
-      btn.className = "quiz-option";
+      btn.className = "quiz-option-btn";
       btn.textContent = optText;
 
       btn.addEventListener("click", () => {
@@ -245,21 +214,19 @@ function initQuiz() {
         if (isCorrect) {
           score++;
           btn.classList.add("correct");
-          feedbackEl.className = "quiz-feedback success show";
+          feedbackEl.className = "quiz-explanation-box success show";
           feedbackEl.innerHTML = `<strong>Correct.</strong> ${q.explanation}`;
         } else {
           btn.classList.add("incorrect");
-          // Highlight correct option
-          const allOptions = optionsEl.querySelectorAll(".quiz-option");
+          const allOptions = optionsEl.querySelectorAll(".quiz-option-btn");
           if (allOptions[q.answer]) {
             allOptions[q.answer].classList.add("correct");
           }
-          feedbackEl.className = "quiz-feedback danger show";
+          feedbackEl.className = "quiz-explanation-box danger show";
           feedbackEl.innerHTML = `<strong>Incorrect.</strong> ${q.explanation}`;
         }
 
-        // Disable all options
-        optionsEl.querySelectorAll(".quiz-option").forEach((b) => (b.disabled = true));
+        optionsEl.querySelectorAll(".quiz-option-btn").forEach((b) => (b.disabled = true));
         scoreBadge.textContent = `Score: ${score} / ${QUIZ_DATA.length}`;
         nextBtn.disabled = false;
       });
@@ -274,7 +241,6 @@ function initQuiz() {
       currentQuestion++;
       renderQuestion();
     } else {
-      // Show Final Summary
       showFinalSummary();
     }
   });
@@ -286,18 +252,18 @@ function initQuiz() {
   });
 
   function showFinalSummary() {
-    stepEl.textContent = "Quiz Completed";
+    stepEl.textContent = "Evaluation Completed";
     progressFill.style.width = "100%";
     questionEl.textContent = `Assessment Summary: ${score} / ${QUIZ_DATA.length} correct`;
 
     const percentage = Math.round((score / QUIZ_DATA.length) * 100);
     optionsEl.innerHTML = `
-      <div style="padding: 1.5rem; text-align: center; background: var(--color-surface-raised); border-radius: var(--radius-md);">
-        <p style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--color-primary);">
-          Result: ${percentage}%
+      <div style="padding: 24px; border: 2px solid var(--color-border-strong); background: var(--color-surface);">
+        <p style="font-family: var(--font-display); font-size: 24px; margin-bottom: 8px; color: var(--color-primary);">
+          Final Evaluation: ${percentage}%
         </p>
-        <p style="color: var(--color-text-muted); font-size: 0.95rem;">
-          ${percentage >= 80 ? "Excellence demonstrated across HTML5, CSS and JavaScript fundamentals." : "Good effort. Review the technical cards on the home page to consolidate core concepts."}
+        <p style="font-size: 15px; color: var(--color-text-secondary);">
+          ${percentage >= 80 ? "Excellence demonstrated across HTML5, CSS and JavaScript architecture." : "Review the technical specifications on the home page to consolidate core fundamentals."}
         </p>
       </div>
     `;
@@ -310,7 +276,7 @@ function initQuiz() {
 }
 
 /* ==========================================================================
-   6. Interactive CSS Box Model Tool (interactive.html)
+   5. Interactive CSS Box Model Tool (interactive.html)
    ========================================================================== */
 function initBoxModelTool() {
   const marginSlider = document.getElementById("slider-margin");
@@ -342,7 +308,7 @@ function initBoxModelTool() {
     previewPadding.style.padding = `${p}px`;
 
     if (generatedCss) {
-      generatedCss.textContent = `.element {\n  box-sizing: border-box;\n  margin: ${m}px;\n  border: ${b}px solid #6d28d9;\n  padding: ${p}px;\n}`;
+      generatedCss.textContent = `.element {\n  box-sizing: border-box;\n  margin: ${m}px;\n  border: ${b}px solid #0A0A0A;\n  padding: ${p}px;\n}`;
     }
   }
 
@@ -354,7 +320,7 @@ function initBoxModelTool() {
 }
 
 /* ==========================================================================
-   7. Form Validation (interactive.html)
+   6. Form Validation (interactive.html)
    ========================================================================== */
 function initFormValidation() {
   const form = document.getElementById("academic-feedback-form");
@@ -367,7 +333,7 @@ function initFormValidation() {
   const alertBox = document.getElementById("form-alert");
 
   function validateField(input, condition) {
-    const parent = input.closest(".form-group");
+    const parent = input.closest(".field-group");
     if (!condition) {
       parent.classList.add("has-error");
       return false;
@@ -405,17 +371,15 @@ function initFormValidation() {
 
     if (isNameValid && isEmailValid && isTopicValid && isMsgValid) {
       if (alertBox) {
-        alertBox.className = "form-alert success";
-        alertBox.textContent = `Transmission confirmed. Inscription recorded for ${nameInput.value.trim()} under topic "${topicSelect.value}". Verification passed.`;
+        alertBox.style.display = "block";
+        alertBox.textContent = `Transmission confirmed. Inscription recorded for ${nameInput.value.trim()} under category "${topicSelect.value}". Standards check passed.`;
         alertBox.scrollIntoView({ behavior: "smooth", block: "nearest" });
       }
 
       form.reset();
-      // Clear errors
-      form.querySelectorAll(".form-group").forEach((group) => group.classList.remove("has-error"));
+      form.querySelectorAll(".field-group").forEach((group) => group.classList.remove("has-error"));
     } else {
       if (alertBox) {
-        alertBox.className = "form-alert";
         alertBox.style.display = "none";
       }
     }
