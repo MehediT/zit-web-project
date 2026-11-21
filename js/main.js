@@ -170,12 +170,13 @@ function initFeedbackManager() {
 
     feedbacks.forEach((item) => {
       const row = document.createElement("tr");
+      row.className = "feedback-row";
       row.innerHTML = `
-        <td class="table-date-cell">${escapeHtml(item.date)}</td>
-        <td class="table-author-cell">${escapeHtml(item.name)}</td>
-        <td><a href="mailto:${escapeHtml(item.email)}" style="color: var(--text-secondary);">${escapeHtml(item.email)}</a></td>
-        <td>${escapeHtml(item.message)}</td>
-        <td><span class="table-status-pill">${escapeHtml(item.status || "Approved")}</span></td>
+        <td class="table-date-cell" data-label="Date">${escapeHtml(item.date)}</td>
+        <td class="table-author-cell" data-label="Author">${escapeHtml(item.name)}</td>
+        <td class="table-email-cell" data-label="Email"><a href="mailto:${escapeHtml(item.email)}" class="table-email-link">${escapeHtml(item.email)}</a></td>
+        <td class="table-message-cell" data-label="Feedback">${escapeHtml(item.message)}</td>
+        <td class="table-status-cell" data-label="Status"><span class="table-status-pill">${escapeHtml(item.status || "Approved")}</span></td>
       `;
       tableBody.appendChild(row);
     });

@@ -1173,6 +1173,15 @@ a {
    Responsive Enhancements for Mobile & Tablets (Form & Feedback Table)
    ========================================================================== */
 @media (max-width: 768px) {
+  .top-institutional-bar {
+    flex-direction: column;
+    text-align: center;
+    gap: 4px;
+    padding: 8px 16px;
+    font-size: 11px;
+    line-height: 1.4;
+  }
+
   .hero-buttons {
     flex-direction: column;
     width: 100%;
@@ -1186,86 +1195,202 @@ a {
     text-align: center;
   }
 
+  .container {
+    padding: 32px 16px 60px 16px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
   .form-wrapper-card {
     padding: 28px 20px;
     border-radius: 20px;
     margin: 0 auto 40px auto;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .form-input-control {
+    font-size: 16px; /* Prevents auto-zoom on iOS Safari */
+    padding: 12px 14px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  textarea.form-input-control {
+    min-height: 110px;
+    resize: vertical;
+    max-width: 100%;
   }
 
   .table-wrapper-card {
-    padding: 24px 16px;
+    padding: 22px 16px;
     border-radius: 20px;
     margin: 0 auto 40px auto;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .table-header-meta {
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
+    margin-bottom: 20px;
+    padding-bottom: 14px;
   }
 
   .table-badge-counter {
     align-self: flex-start;
   }
 
+  /* Transform table into 100% responsive cards on mobile */
   .table-responsive {
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: thin;
-    padding-bottom: 6px;
+    overflow-x: visible;
+    width: 100%;
   }
 
   .minimal-table {
-    min-width: 580px;
+    min-width: 0 !important;
+    width: 100% !important;
+    display: block;
+    border-collapse: separate;
   }
 
-  .minimal-table th,
+  .minimal-table thead {
+    display: none;
+  }
+
+  .minimal-table tbody {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
+  }
+
+  .minimal-table tr {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-surface-subtle);
+    border: 1px solid var(--border-medium);
+    border-radius: var(--radius-sm);
+    padding: 16px;
+    gap: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .minimal-table tr:hover {
+    background-color: #f7f5f1;
+  }
+
   .minimal-table td {
-    padding: 12px 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(229, 226, 220, 0.7);
     font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    word-break: break-word;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .minimal-table td:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .minimal-table td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    min-width: 80px;
+    margin-right: 12px;
+    flex-shrink: 0;
+  }
+
+  .minimal-table td.table-message-cell {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .minimal-table td.table-message-cell::before {
+    margin-bottom: 2px;
+  }
+
+  .minimal-table td.table-author-cell {
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .minimal-table td.table-date-cell {
+    font-family: var(--font-mono);
+    font-size: 12px;
+  }
+
+  .table-email-link {
+    color: var(--text-secondary);
+    word-break: break-all;
+  }
+
+  .minimal-table td.table-empty-row {
+    display: block;
+    text-align: center;
+    border-bottom: none;
+    padding: 24px 12px;
+  }
+
+  .minimal-table td.table-empty-row::before {
+    display: none;
   }
 }
 
 @media (max-width: 480px) {
   .container {
-    padding: 24px 16px 60px 16px;
+    padding: 24px 14px 48px 14px;
   }
 
   .hero {
-    padding: 44px 16px 36px 16px;
+    padding: 44px 14px 32px 14px;
     min-height: auto;
   }
 
   .hero-display-title {
-    font-size: clamp(2.2rem, 9vw, 3.2rem);
+    font-size: clamp(2rem, 8.5vw, 2.8rem);
   }
 
   .form-wrapper-card {
-    padding: 22px 16px;
+    padding: 20px 14px;
     border-radius: 16px;
-  }
-
-  .form-input-control {
-    font-size: 16px; /* Prevents auto-zoom on iOS Safari */
-    padding: 12px 14px;
   }
 
   .table-wrapper-card {
-    padding: 18px 12px;
+    padding: 16px 12px;
     border-radius: 16px;
   }
 
-  .minimal-table th,
-  .minimal-table td {
-    padding: 10px 12px;
-    font-size: 12px;
+  .minimal-table tr {
+    padding: 14px 12px;
   }
 
-  .minimal-table {
-    min-width: 520px;
+  .minimal-table td {
+    font-size: 12px;
+    padding: 5px 0;
+  }
+
+  .minimal-table td::before {
+    min-width: 70px;
+    font-size: 10px;
   }
 
   .btn {
-    padding: 12px 20px;
+    padding: 12px 18px;
     font-size: 13px;
   }
 }
