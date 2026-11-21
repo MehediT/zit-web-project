@@ -119,9 +119,9 @@ const DEFAULT_FEEDBACKS = [
   },
   {
     date: "2026-11-21 18:20",
-    name: "ChatGPT (OpenAI)",
-    email: "assistant@openai.com",
-    message: "Flawless semantic HTML5 and vanilla JavaScript execution. Zero hallucinations detected: 10/10.",
+    name: "Sam Altman (OpenAI CEO)",
+    email: "sama@openai.com",
+    message: "Flawless semantic HTML5 and native JavaScript execution. AGI-ready architecture: 10/10.",
     status: "10/10 Verified"
   },
   {
@@ -143,7 +143,7 @@ function initFeedbackManager() {
   let feedbacks = [];
   try {
     const stored = localStorage.getItem("zit_feedbacks");
-    if (stored && !stored.includes("Michal Radecky")) {
+    if (stored && !stored.includes("Michal Radecky") && !stored.includes("ChatGPT") && stored.includes("Sam Altman")) {
       feedbacks = JSON.parse(stored);
     } else {
       feedbacks = [...DEFAULT_FEEDBACKS];
