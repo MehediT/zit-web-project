@@ -16,7 +16,7 @@ Lecturer: Ing. Michal Radecky, Ph.D.
 1. **Framework-Free Stack:**
    - 100% Plain Semantic HTML5
    - 100% Plain Modern CSS3 (CSS Variables, Flexbox, CSS Grid)
-   - 100% Plain Vanilla ECMAScript (Zero dependencies, no jQuery, no Bootstrap, no external frameworks)
+   - 100% Plain Vanilla JavaScript (Zero dependencies, no jQuery, no Bootstrap, no external frameworks)
 
 2. **Multipage Architecture:**
    - `index.html`: Web Architecture Curriculum, Core Standards, Live Prague Clock, Interactive Concept Search.
