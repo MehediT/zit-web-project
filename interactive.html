@@ -56,7 +56,7 @@
   <section class="hero" aria-labelledby="js-hero-title">
     <div class="hero-content">
       <div class="hero-badge-container">
-        <span class="hero-pill">Module Pratique &bull; Vanilla JavaScript</span>
+        <span class="hero-pill">Client-Side Processing &bull; Vanilla JavaScript</span>
       </div>
 
       <h1 id="js-hero-title" class="hero-display-title">
@@ -65,16 +65,16 @@
 
       <div class="hero-lead-grid">
         <p>
-          Démonstration des fonctionnalités dynamiques côté client en JavaScript natif sans dépendance externe. Validation rigoureuse des champs avant soumission.
+          Client-side validation and dynamic DOM manipulation in pure native JavaScript. Instant constraint checking prior to submission.
         </p>
         <p>
-          Insertion directe des entrées dans le DOM et persistance locale dans le tableau des retours ci-dessous, répondant aux exigences du cours ZIT.
+          Dynamic record insertion and local persistence in the table below, fully adhering to the ZIT university curriculum.
         </p>
       </div>
 
       <div class="hero-buttons">
-        <a href="#feedback-form-section" class="btn btn-dark">Remplir le Formulaire</a>
-        <a href="#feedback-table-section" class="btn btn-light">Voir le Feedback Retenu</a>
+        <a href="#feedback-form-section" class="btn btn-dark">Leave Feedback</a>
+        <a href="#feedback-table-section" class="btn btn-light">View Recorded Feedback</a>
       </div>
     </div>
   </section>
@@ -85,10 +85,10 @@
     <!-- Section: Academic Feedback Form -->
     <section id="feedback-form-section" aria-labelledby="form-section-title">
       <div class="section-head">
-        <span class="section-badge">Formulaire Client</span>
+        <span class="section-badge">Client Form</span>
         <h2 id="form-section-title" class="section-title">Academic Feedback Form</h2>
         <p class="section-subtitle">
-          Saisissez votre retour. Le script vérifie la conformité des données en temps réel avant d'alimenter le tableau récapitulatif.
+          Submit your review. Input is validated client-side in real time before appending to the register below.
         </p>
       </div>
 
@@ -97,25 +97,25 @@
 
         <form id="academic-feedback-form" novalidate>
           <div class="form-field-unit">
-            <label for="form-name" class="form-label">Nom et Prénom</label>
-            <input type="text" id="form-name" class="form-input-control" placeholder="ex. Mehedi Toure" required minlength="3">
-            <div class="field-error-notice">Veuillez renseigner au moins 3 caractères.</div>
+            <label for="form-name" class="form-label">Full Name</label>
+            <input type="text" id="form-name" class="form-input-control" placeholder="e.g. Mehedi Toure" required minlength="3">
+            <div class="field-error-notice">Please enter at least 3 characters.</div>
           </div>
 
           <div class="form-field-unit">
-            <label for="form-email" class="form-label">Adresse E-mail Universitaire</label>
-            <input type="email" id="form-email" class="form-input-control" placeholder="ex. mehedi.toure.st@vsb.cz" required>
-            <div class="field-error-notice">Veuillez renseigner une adresse e-mail valide.</div>
+            <label for="form-email" class="form-label">Email Address</label>
+            <input type="email" id="form-email" class="form-input-control" placeholder="e.g. mehedi.toure.st@vsb.cz" required>
+            <div class="field-error-notice">Please enter a valid email address.</div>
           </div>
 
           <div class="form-field-unit">
-            <label for="form-message" class="form-label">Observation ou Feedback</label>
-            <textarea id="form-message" class="form-input-control" rows="4" placeholder="Indiquez votre retour ou commentaire technique (minimum 10 caractères)..." required minlength="10"></textarea>
-            <div class="field-error-notice">Le message doit contenir au moins 10 caractères.</div>
+            <label for="form-message" class="form-label">Review or Feedback</label>
+            <textarea id="form-message" class="form-input-control" rows="4" placeholder="Enter your feedback or technical observation (minimum 10 characters)..." required minlength="10"></textarea>
+            <div class="field-error-notice">Your message must contain at least 10 characters.</div>
           </div>
 
           <button type="submit" class="btn btn-dark" style="width: 100%;">
-            Valider et Enregistrer le Feedback
+            Validate &amp; Submit Feedback
           </button>
         </form>
       </div>
@@ -124,31 +124,31 @@
     <!-- Section: Feedback Retenu Table -->
     <section id="feedback-table-section" aria-labelledby="table-section-title" style="margin-top: 40px;">
       <div class="section-head">
-        <span class="section-badge">Registre Dynamique</span>
+        <span class="section-badge">Dynamic Register</span>
         <h2 id="table-section-title" class="section-title">Feedback Retenu</h2>
         <p class="section-subtitle">
-          Tableau récapitulatif mis à jour en direct par JavaScript lors de chaque soumission de formulaire avec persistance locale.
+          Real-time summary table updated dynamically by JavaScript upon each submission with local storage persistence.
         </p>
       </div>
 
       <div class="table-wrapper-card">
         <div class="table-header-meta">
           <div>
-            <span style="font-size: 14px; font-weight: 600; color: var(--text-primary);">Liste des Retours Validés</span>
-            <span style="font-size: 12px; color: var(--text-muted); display: block; margin-top: 2px;">Mémorisation automatique dans localStorage</span>
+            <span style="font-size: 14px; font-weight: 600; color: var(--text-primary);">Validated Review Submissions</span>
+            <span style="font-size: 12px; color: var(--text-muted); display: block; margin-top: 2px;">Stored locally via localStorage</span>
           </div>
-          <span id="feedback-count-badge" class="table-badge-counter">2 retours enregistrés</span>
+          <span id="feedback-count-badge" class="table-badge-counter">3 reviews recorded</span>
         </div>
 
         <div class="table-responsive">
-          <table class="minimal-table" aria-label="Tableau des retours enregistrés">
+          <table class="minimal-table" aria-label="Table of recorded feedback">
             <thead>
               <tr>
-                <th scope="col">Date &amp; Heure</th>
-                <th scope="col">Auteur</th>
-                <th scope="col">E-mail</th>
+                <th scope="col">Date &amp; Time</th>
+                <th scope="col">Author</th>
+                <th scope="col">Email</th>
                 <th scope="col">Feedback</th>
-                <th scope="col">Statut</th>
+                <th scope="col">Rating / Status</th>
               </tr>
             </thead>
             <tbody id="feedback-table-body">
