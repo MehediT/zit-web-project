@@ -1058,3 +1058,113 @@ a {
     width: 100%;
   }
 }
+
+/* ==========================================================================
+   Feedback Table Component (Javascript Part)
+   ========================================================================== */
+.table-wrapper-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-card);
+  padding: 36px;
+  max-width: 960px;
+  margin: 0 auto 80px auto;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.02);
+}
+
+.table-header-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border-subtle);
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.table-badge-counter {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 12px;
+  background-color: var(--bg-surface-subtle);
+  border-radius: var(--radius-pill);
+  color: var(--text-primary);
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.minimal-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 14px;
+}
+
+.minimal-table th {
+  padding: 14px 16px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  border-bottom: 2px solid var(--border-medium);
+  background-color: var(--bg-surface);
+  white-space: nowrap;
+}
+
+.minimal-table td {
+  padding: 16px;
+  border-bottom: 1px solid var(--border-subtle);
+  vertical-align: top;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.minimal-table tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+.minimal-table tbody tr:hover {
+  background-color: var(--bg-surface-subtle);
+}
+
+.minimal-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.table-author-cell {
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.table-date-cell {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.table-status-pill {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  font-size: 11px;
+  font-weight: 600;
+  background-color: var(--accent-emerald-soft);
+  color: #065f46;
+  white-space: nowrap;
+}
+
+.table-empty-row {
+  text-align: center;
+  color: var(--text-muted);
+  padding: 32px 16px !important;
+  font-style: italic;
+}

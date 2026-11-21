@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Interactive Laboratory and Assessment Quiz for Basics of IT (ZIT 460-2079/02) at VSB-TUO. Student: Mehedi Toure (TOU0026).">
+  <meta name="description" content="Javascript Part - Client-side validation and dynamic feedback table for Basics of IT (ZIT 460-2079/02) at VSB-TUO. Student: Mehedi Toure (TOU0026).">
   <meta name="author" content="Mehedi Toure (TOU0026)">
-  <title>Interactive Lab & Quiz • ZIT 460-2079/02 | VSB-TUO</title>
+  <title>Javascript Part • ZIT 460-2079/02 | VSB-TUO</title>
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -44,7 +44,7 @@
 
       <nav id="site-nav" class="site-nav" aria-label="Primary Navigation">
         <a href="index.html" class="nav-link">Curriculum</a>
-        <a href="interactive.html" class="nav-link active">Interactive Lab</a>
+        <a href="interactive.html" class="nav-link active">Javascript Part</a>
         <div class="nav-actions">
           <span class="pill-badge">ZIT 2026</span>
         </div>
@@ -53,28 +53,28 @@
   </header>
 
   <!-- Hero Section -->
-  <section class="hero" aria-labelledby="lab-hero-title">
+  <section class="hero" aria-labelledby="js-hero-title">
     <div class="hero-content">
       <div class="hero-badge-container">
-        <span class="hero-pill">Verification Suite &bull; Dynamic JavaScript</span>
+        <span class="hero-pill">Module Pratique &bull; Vanilla JavaScript</span>
       </div>
 
-      <h1 id="lab-hero-title" class="hero-display-title">
-        Interactive.
+      <h1 id="js-hero-title" class="hero-display-title">
+        Javascript Part.
       </h1>
 
       <div class="hero-lead-grid">
         <p>
-          Engage directly with the underlying mechanics of web applications. Evaluate your theoretical knowledge, observe computed CSS box-model geometry, and verify client validation routines.
+          Démonstration des fonctionnalités dynamiques côté client en ECMAScript natif sans dépendance externe. Validation rigoureuse des champs avant soumission.
         </p>
         <p>
-          All operations run entirely in pure client-side ECMAScript without dependencies, adhering strictly to the university curriculum constraints.
+          Insertion directe des entrées dans le DOM et persistance locale dans le tableau des retours ci-dessous, répondant aux exigences du cours ZIT.
         </p>
       </div>
 
       <div class="hero-buttons">
-        <a href="#quiz-suite" class="btn btn-dark">Take Assessment</a>
-        <a href="#box-model-suite" class="btn btn-light">Inspect Box Model</a>
+        <a href="#feedback-form-section" class="btn btn-dark">Remplir le Formulaire</a>
+        <a href="#feedback-table-section" class="btn btn-light">Voir le Feedback Retenu</a>
       </div>
     </div>
   </section>
@@ -82,113 +82,13 @@
   <!-- Main Content -->
   <main class="container">
 
-    <!-- Section 1: ZIT Interactive Knowledge Quiz -->
-    <section id="quiz-suite" aria-labelledby="quiz-section-title">
+    <!-- Section: Academic Feedback Form -->
+    <section id="feedback-form-section" aria-labelledby="form-section-title">
       <div class="section-head">
-        <span class="section-badge">Module 01</span>
-        <h2 id="quiz-section-title" class="section-title">Knowledge Assessment Quiz</h2>
+        <span class="section-badge">Formulaire Client</span>
+        <h2 id="form-section-title" class="section-title">Academic Feedback Form</h2>
         <p class="section-subtitle">
-          Evaluate your understanding of core concepts covered in the "Building the Web" syllabus.
-        </p>
-      </div>
-
-      <div id="quiz-container" class="quiz-surface">
-        <div class="quiz-progress-track" aria-label="Quiz Progress">
-          <div id="quiz-progress-fill" class="quiz-progress-fill"></div>
-        </div>
-
-        <div class="quiz-header-meta">
-          <span id="quiz-step" class="quiz-step-title">Question 1 of 5</span>
-          <span id="quiz-score-badge" class="quiz-badge">Score: 0 / 5</span>
-        </div>
-
-        <h3 id="quiz-question" class="quiz-question-text">Loading question...</h3>
-
-        <div id="quiz-options" class="quiz-options-grid" role="radiogroup" aria-labelledby="quiz-question">
-          <!-- Dynamically injected via main.js -->
-        </div>
-
-        <div id="quiz-feedback" class="quiz-feedback-box" role="alert" aria-live="assertive">
-          <!-- Dynamic feedback -->
-        </div>
-
-        <div class="quiz-nav-actions">
-          <button id="quiz-reset-btn" type="button" class="btn btn-light">Reset Quiz</button>
-          <button id="quiz-next-btn" type="button" class="btn btn-dark" disabled>Next Question</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- Section 2: Interactive CSS Box Model Playground -->
-    <section id="box-model-suite" aria-labelledby="box-section-title" style="margin-top: 60px;">
-      <div class="section-head">
-        <span class="section-badge">Module 02</span>
-        <h2 id="box-section-title" class="section-title">CSS Box Model Simulator</h2>
-        <p class="section-subtitle">
-          Adjust physical layout parameters to inspect how margin, border, and padding recalculate the element geometry in real time.
-        </p>
-      </div>
-
-      <div class="box-tool-grid">
-        <!-- Controls Column -->
-        <div class="tool-controls-card">
-          <div class="slider-group">
-            <div class="slider-label-row">
-              <span>Margin (Outer Clearance)</span>
-              <span id="val-margin">20px</span>
-            </div>
-            <input type="range" id="slider-margin" class="minimal-slider" min="0" max="48" value="20" aria-label="Adjust Margin">
-          </div>
-
-          <div class="slider-group">
-            <div class="slider-label-row">
-              <span>Border (Boundary Stroke)</span>
-              <span id="val-border">4px</span>
-            </div>
-            <input type="range" id="slider-border" class="minimal-slider" min="0" max="16" value="4" aria-label="Adjust Border Width">
-          </div>
-
-          <div class="slider-group">
-            <div class="slider-label-row">
-              <span>Padding (Inner Breathing Room)</span>
-              <span id="val-padding">24px</span>
-            </div>
-            <input type="range" id="slider-padding" class="minimal-slider" min="0" max="56" value="24" aria-label="Adjust Padding">
-          </div>
-
-          <div class="code-snippet" style="margin-top: 24px;">
-            <code id="generated-css">.element {
-  box-sizing: border-box;
-  margin: 20px;
-  border: 4px solid #171717;
-  padding: 24px;
-}</code>
-          </div>
-        </div>
-
-        <!-- Visual Inspection Panel -->
-        <div class="tool-preview-card">
-          <div id="preview-margin" class="sim-margin-wrap">
-            <div style="font-size: 10px; font-weight: 700; color: #d97706; margin-bottom: 6px; letter-spacing: 0.05em;">MARGIN BOX</div>
-            <div id="preview-border" class="sim-border-wrap">
-              <div id="preview-padding" class="sim-padding-wrap">
-                <div class="sim-content-box">
-                  CONTENT BOX
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Section 3: Interactive Validation Form -->
-    <section id="feedback-suite" aria-labelledby="form-section-title" style="margin-top: 60px;">
-      <div class="section-head">
-        <span class="section-badge">Module 03</span>
-        <h2 id="form-section-title" class="section-title">Academic Feedback & Contact</h2>
-        <p class="section-subtitle">
-          Form submission verified client-side by native JavaScript before dispatch, complete with accessible inline error reporting.
+          Saisissez votre retour. Le script vérifie la conformité des données en temps réel avant d'alimenter le tableau récapitulatif.
         </p>
       </div>
 
@@ -197,28 +97,65 @@
 
         <form id="academic-feedback-form" novalidate>
           <div class="form-field-unit">
-            <label for="form-name" class="form-label">Student / Evaluator Full Name</label>
-            <input type="text" id="form-name" class="form-input-control" placeholder="e.g. Mehedi Toure" required minlength="3">
-            <div class="field-error-notice">Please enter at least 3 characters.</div>
+            <label for="form-name" class="form-label">Nom et Prénom</label>
+            <input type="text" id="form-name" class="form-input-control" placeholder="ex. Mehedi Toure" required minlength="3">
+            <div class="field-error-notice">Veuillez renseigner au moins 3 caractères.</div>
           </div>
 
           <div class="form-field-unit">
-            <label for="form-email" class="form-label">University Email Address</label>
-            <input type="email" id="form-email" class="form-input-control" placeholder="e.g. mehedi.toure.st@vsb.cz" required>
-            <div class="field-error-notice">Please enter a valid email address (e.g. student@vsb.cz).</div>
+            <label for="form-email" class="form-label">Adresse E-mail Universitaire</label>
+            <input type="email" id="form-email" class="form-input-control" placeholder="ex. mehedi.toure.st@vsb.cz" required>
+            <div class="field-error-notice">Veuillez renseigner une adresse e-mail valide.</div>
           </div>
 
-
           <div class="form-field-unit">
-            <label for="form-message" class="form-label">Observation or Inquiry</label>
-            <textarea id="form-message" class="form-input-control" rows="4" placeholder="Detail your technical observation (minimum 10 characters)..." required minlength="10"></textarea>
-            <div class="field-error-notice">Your message must contain at least 10 characters.</div>
+            <label for="form-message" class="form-label">Observation ou Feedback</label>
+            <textarea id="form-message" class="form-input-control" rows="4" placeholder="Indiquez votre retour ou commentaire technique (minimum 10 caractères)..." required minlength="10"></textarea>
+            <div class="field-error-notice">Le message doit contenir au moins 10 caractères.</div>
           </div>
 
           <button type="submit" class="btn btn-dark" style="width: 100%;">
-            Validate & Submit Form
+            Valider et Enregistrer le Feedback
           </button>
         </form>
+      </div>
+    </section>
+
+    <!-- Section: Feedback Retenu Table -->
+    <section id="feedback-table-section" aria-labelledby="table-section-title" style="margin-top: 40px;">
+      <div class="section-head">
+        <span class="section-badge">Registre Dynamique</span>
+        <h2 id="table-section-title" class="section-title">Feedback Retenu</h2>
+        <p class="section-subtitle">
+          Tableau récapitulatif mis à jour en direct par JavaScript lors de chaque soumission de formulaire avec persistance locale.
+        </p>
+      </div>
+
+      <div class="table-wrapper-card">
+        <div class="table-header-meta">
+          <div>
+            <span style="font-size: 14px; font-weight: 600; color: var(--text-primary);">Liste des Retours Validés</span>
+            <span style="font-size: 12px; color: var(--text-muted); display: block; margin-top: 2px;">Mémorisation automatique dans localStorage</span>
+          </div>
+          <span id="feedback-count-badge" class="table-badge-counter">2 retours enregistrés</span>
+        </div>
+
+        <div class="table-responsive">
+          <table class="minimal-table" aria-label="Tableau des retours enregistrés">
+            <thead>
+              <tr>
+                <th scope="col">Date &amp; Heure</th>
+                <th scope="col">Auteur</th>
+                <th scope="col">E-mail</th>
+                <th scope="col">Feedback</th>
+                <th scope="col">Statut</th>
+              </tr>
+            </thead>
+            <tbody id="feedback-table-body">
+              <!-- Injected dynamically via js/main.js -->
+            </tbody>
+          </table>
+        </div>
       </div>
     </section>
 
@@ -238,8 +175,8 @@
         <h4 class="footer-col-title">Navigation</h4>
         <ul class="footer-link-list">
           <li><a href="index.html">Curriculum Overview</a></li>
-          <li><a href="interactive.html">Interactive Laboratory</a></li>
-          <li><a href="#lab-hero-title">Back to Top</a></li>
+          <li><a href="interactive.html">Javascript Part</a></li>
+          <li><a href="#js-hero-title">Back to Top</a></li>
         </ul>
       </div>
 

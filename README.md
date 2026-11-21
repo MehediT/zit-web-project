@@ -19,38 +19,21 @@ Lecturer: Ing. Michal Radecky, Ph.D.
    - 100% Plain Vanilla ECMAScript (Zero dependencies, no jQuery, no Bootstrap, no external frameworks)
 
 2. **Multipage Architecture:**
-   - `index.html`: Web Architecture Curriculum, Core Standards, Prague Clock & Deadline Countdown, Interactive Search.
-   - `interactive.html`: Interactive Knowledge Quiz with real-time scoring, CSS Box Model Inspector, and Form Validation.
+   - `index.html`: Web Architecture Curriculum, Core Standards, Live Prague Clock, Interactive Concept Search.
+   - `interactive.html`: Javascript Part with Client-Side Form Validation and Dynamic Table of Recorded Feedbacks (Feedback Retenu) with persistent localStorage.
 
 3. **Responsive Design:**
    - Fluid responsive breakpoints with CSS Grid `repeat(auto-fit, minmax(...))` and Flexbox.
-   - Mobile navigation toggle menu for viewports under 680px.
+   - Mobile navigation toggle menu.
 
 4. **JavaScript Functionalities:**
-   - Live Countdown Timer to deadline (22 November 2026 23:59:59 CET).
    - Real-time Prague clock (CET timezone).
-   - Dark/Light mode theme switch with `localStorage` persistence.
+   - Minimalist interactive cursor tracking on desktop.
    - Live search filter across technical concept cards.
-   - Dynamic 5-question Quiz Engine with instant feedback and score evaluation.
-   - Live CSS Box Model playground updating computed CSS declarations.
-   - Strict client-side form validation with inline accessible error reporting.
+   - Strict client-side form validation with accessible inline error reporting.
+   - Dynamic DOM table insertion and local persistence (`localStorage`) for submitted feedbacks.
 
-## Deployment Options
+## Deployment
 
-### Option A: GitHub Pages (Recommended)
-
-```bash
-cd /Users/eteindre/Projet/web/sites/zit-web-project
-git init
-git add .
-git commit -m "feat: initial release of ZIT web fundamentals project"
-gh repo create zit-web-project --public --source=. --push
-gh repo edit --enable-pages --pages-branch=main
-```
-
-### Option B: Vercel
-
-```bash
-cd /Users/eteindre/Projet/web/sites/zit-web-project
-vercel --prod
-```
+Hosted on GitHub Pages:
+[https://mehedit.github.io/zit-web-project/](https://mehedit.github.io/zit-web-project/)
